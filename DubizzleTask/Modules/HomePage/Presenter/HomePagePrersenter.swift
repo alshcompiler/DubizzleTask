@@ -21,8 +21,8 @@ class HomePagePresenter: HomePageViewToPresenterProtocol {
         interactor?.fetchItems()
     }
     
-    func getItemsCount() -> Int? {
-        return interactor?.items?.count
+    func getItemsCount() -> Int {
+        return interactor?.items?.count ?? 0
     }
     
     func getItem(index: Int) -> ItemModel? {

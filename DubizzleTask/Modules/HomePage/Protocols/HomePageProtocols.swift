@@ -26,7 +26,7 @@ protocol HomePagePresentorToInteractorProtocol: class {
 }
 
 protocol HomePageViewToPresenterBaseProtocol: class {
-    func getItemsCount() -> Int?
+    func getItemsCount() -> Int
     func getItem(index: Int) -> ItemModel?
 }
 
@@ -45,4 +45,8 @@ protocol HomePageCellToPresenterProtocol: class {
 
 protocol HomePagePresenterToRouterProtocol: class {
     static func createModule() -> UIViewController
+}
+
+protocol HomePageTableCellDelegate: class {
+    func navigateToDetailsScreen(at index: Int)
 }

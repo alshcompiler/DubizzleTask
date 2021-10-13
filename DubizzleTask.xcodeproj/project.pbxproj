@@ -11,6 +11,11 @@
 		47313E2A77D09F0737BB2F98 /* Pods_DubizzleTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8A132DE2A659A3318419F6 /* Pods_DubizzleTask.framework */; };
 		7EEA8BD14B1FB638751C9A0B /* Pods_DubizzleTask_DubizzleTaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02642CC98D5C635BB635BE32 /* Pods_DubizzleTask_DubizzleTaskUITests.framework */; };
 		D109E99027161E9F009CF315 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D109E98F27161E9F009CF315 /* ItemsTableViewCell.swift */; };
+		D109E9BA2716D599009CF315 /* DetailsPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D109E9B92716D599009CF315 /* DetailsPageInteractor.swift */; };
+		D109E9C02716D5D5009CF315 /* DetailsPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D109E9BF2716D5D5009CF315 /* DetailsPagePresenter.swift */; };
+		D109E9C62716D5FC009CF315 /* DetailsPageRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D109E9C52716D5FC009CF315 /* DetailsPageRoute.swift */; };
+		D109E9CC2716D685009CF315 /* DetailsPageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D109E9CB2716D685009CF315 /* DetailsPageProtocols.swift */; };
+		D13BAE812716F2050011D9AE /* DetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13BAE802716F2050011D9AE /* DetailsPageViewController.swift */; };
 		D1A0AF1227159DE100C6E227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AF1127159DE100C6E227 /* AppDelegate.swift */; };
 		D1A0AF1427159DE100C6E227 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AF1327159DE100C6E227 /* SceneDelegate.swift */; };
 		D1A0AF1627159DE100C6E227 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AF1527159DE100C6E227 /* HomePageViewController.swift */; };
@@ -65,6 +70,12 @@
 		C945396A33944F0FBCA733BC /* Pods-DubizzleTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubizzleTaskTests.debug.xcconfig"; path = "Target Support Files/Pods-DubizzleTaskTests/Pods-DubizzleTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF1318DC03471860CCC8EECF /* Pods-DubizzleTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubizzleTask.debug.xcconfig"; path = "Target Support Files/Pods-DubizzleTask/Pods-DubizzleTask.debug.xcconfig"; sourceTree = "<group>"; };
 		D109E98F27161E9F009CF315 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
+		D109E99E2716CD2A009CF315 /* DubizzleTask-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DubizzleTask-Bridging-Header.h"; sourceTree = "<group>"; };
+		D109E9B92716D599009CF315 /* DetailsPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageInteractor.swift; sourceTree = "<group>"; };
+		D109E9BF2716D5D5009CF315 /* DetailsPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPagePresenter.swift; sourceTree = "<group>"; };
+		D109E9C52716D5FC009CF315 /* DetailsPageRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageRoute.swift; sourceTree = "<group>"; };
+		D109E9CB2716D685009CF315 /* DetailsPageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageProtocols.swift; sourceTree = "<group>"; };
+		D13BAE802716F2050011D9AE /* DetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewController.swift; sourceTree = "<group>"; };
 		D1A0AF0E27159DE100C6E227 /* DubizzleTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DubizzleTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A0AF1127159DE100C6E227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1A0AF1327159DE100C6E227 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +156,66 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		D109E99B2716CA52009CF315 /* DetailsPage */ = {
+			isa = PBXGroup;
+			children = (
+				D109E99C2716CA7E009CF315 /* View */,
+				D109E9B82716D479009CF315 /* Interactor */,
+				D109E9BE2716D5B7009CF315 /* Presenter */,
+				D109E9C42716D5EF009CF315 /* Route */,
+				D109E9CA2716D668009CF315 /* Protocols */,
+			);
+			path = DetailsPage;
+			sourceTree = "<group>";
+		};
+		D109E99C2716CA7E009CF315 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D109E99D2716CC23009CF315 /* ViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D109E99D2716CC23009CF315 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D13BAE802716F2050011D9AE /* DetailsPageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D109E9B82716D479009CF315 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D109E9B92716D599009CF315 /* DetailsPageInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D109E9BE2716D5B7009CF315 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D109E9BF2716D5D5009CF315 /* DetailsPagePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D109E9C42716D5EF009CF315 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				D109E9C52716D5FC009CF315 /* DetailsPageRoute.swift */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		D109E9CA2716D668009CF315 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D109E9CB2716D685009CF315 /* DetailsPageProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		D1A0AF0527159DE100C6E227 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +247,7 @@
 				D1A0AF562715A99D00C6E227 /* Networking */,
 				D1A0AF1127159DE100C6E227 /* AppDelegate.swift */,
 				D1A0AF1327159DE100C6E227 /* SceneDelegate.swift */,
+				D109E99E2716CD2A009CF315 /* DubizzleTask-Bridging-Header.h */,
 				D1A0AF1A27159DE200C6E227 /* Assets.xcassets */,
 				D1A0AF1C27159DE200C6E227 /* LaunchScreen.storyboard */,
 				D1A0AF1F27159DE200C6E227 /* Info.plist */,
@@ -242,6 +314,7 @@
 		D1A0AF772715ACD700C6E227 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D109E99B2716CA52009CF315 /* DetailsPage */,
 				D1A0AF782715ACF900C6E227 /* HomePage */,
 			);
 			path = Modules;
@@ -430,6 +503,7 @@
 				TargetAttributes = {
 					D1A0AF0D27159DE100C6E227 = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 					};
 					D1A0AF2327159DE200C6E227 = {
 						CreatedOnToolsVersion = 12.3;
@@ -599,10 +673,14 @@
 			files = (
 				D1A0AF1627159DE100C6E227 /* HomePageViewController.swift in Sources */,
 				D1A0AF622715A99D00C6E227 /* CodableInit.swift in Sources */,
+				D109E9C02716D5D5009CF315 /* DetailsPagePresenter.swift in Sources */,
+				D109E9C62716D5FC009CF315 /* DetailsPageRoute.swift in Sources */,
 				D1A0AF662715A99D00C6E227 /* URLRequestBuilder.swift in Sources */,
+				D109E9CC2716D685009CF315 /* DetailsPageProtocols.swift in Sources */,
 				D1A0AFAE2715BFFB00C6E227 /* GradientViewColor.swift in Sources */,
 				D1A0AF1227159DE100C6E227 /* AppDelegate.swift in Sources */,
 				D1A0AF8B2715B20000C6E227 /* ItemModel.swift in Sources */,
+				D109E9BA2716D599009CF315 /* DetailsPageInteractor.swift in Sources */,
 				D1A0AF672715A99D00C6E227 /* UploadData.swift in Sources */,
 				D1A0AF9A2715B3DB00C6E227 /* HomePageInteractor.swift in Sources */,
 				D1A0AF1427159DE100C6E227 /* SceneDelegate.swift in Sources */,
@@ -610,6 +688,7 @@
 				D1A0AF652715A99D00C6E227 /* DefaultResponse.swift in Sources */,
 				D1A0AFB52715DD9E00C6E227 /* ItemsRouter.swift in Sources */,
 				D1A0AF612715A99D00C6E227 /* APIRequestHandler.swift in Sources */,
+				D13BAE812716F2050011D9AE /* DetailsPageViewController.swift in Sources */,
 				D1A0AF9F2715B46300C6E227 /* HomePageRoute.swift in Sources */,
 				D1A0AF632715A99D00C6E227 /* ResponseHandler.swift in Sources */,
 				D1A0AF952715B3CB00C6E227 /* HomePagePrersenter.swift in Sources */,
@@ -793,7 +872,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = DubizzleTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -801,6 +882,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MostafaSultan.DubizzleTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DubizzleTask/DubizzleTask-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -812,7 +895,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = DubizzleTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -820,6 +905,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MostafaSultan.DubizzleTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DubizzleTask/DubizzleTask-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
