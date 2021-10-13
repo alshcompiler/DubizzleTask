@@ -41,6 +41,8 @@
 		D1A0AFAF2715BFFB00C6E227 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AFAD2715BFFB00C6E227 /* Extension.swift */; };
 		D1A0AFB52715DD9E00C6E227 /* ItemsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AFB42715DD9E00C6E227 /* ItemsRouter.swift */; };
 		D1D3BCBE27161006003007A5 /* ItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D3BCBD27161006003007A5 /* ItemsTableViewCell.xib */; };
+		D1E5D2CF271760B900160095 /* ImageCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E5D2C52717602A00160095 /* ImageCaching.framework */; };
+		D1E5D2D0271760B900160095 /* ImageCaching.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1E5D2C52717602A00160095 /* ImageCaching.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +60,28 @@
 			remoteGlobalIDString = D1A0AF0D27159DE100C6E227;
 			remoteInfo = DubizzleTask;
 		};
+		D1E5D2C42717602A00160095 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1E5D2C02717602900160095 /* ImageCaching.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1E5D2B52717602900160095;
+			remoteInfo = ImageCaching;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D1E5D2D1271760B900160095 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D1E5D2D0271760B900160095 /* ImageCaching.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02642CC98D5C635BB635BE32 /* Pods_DubizzleTask_DubizzleTaskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DubizzleTask_DubizzleTaskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +130,7 @@
 		D1A0AFAD2715BFFB00C6E227 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D1A0AFB42715DD9E00C6E227 /* ItemsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsRouter.swift; sourceTree = "<group>"; };
 		D1D3BCBD27161006003007A5 /* ItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsTableViewCell.xib; sourceTree = "<group>"; };
+		D1E5D2C02717602900160095 /* ImageCaching.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImageCaching.xcodeproj; path = ImageCaching/ImageCaching.xcodeproj; sourceTree = "<group>"; };
 		E5158995B17A2A18F87E2C05 /* Pods_DubizzleTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DubizzleTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E5D2CF271760B900160095 /* ImageCaching.framework in Frameworks */,
 				47313E2A77D09F0737BB2F98 /* Pods_DubizzleTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +266,7 @@
 		D1A0AF1027159DE100C6E227 /* DubizzleTask */ = {
 			isa = PBXGroup;
 			children = (
+				D1E5D2C02717602900160095 /* ImageCaching.xcodeproj */,
 				D109E99427163488009CF315 /* Storyboards */,
 				D1A0AF772715ACD700C6E227 /* Modules */,
 				D1A0AFA82715BFB900C6E227 /* Utils */,
@@ -418,6 +444,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		D1E5D2C12717602900160095 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1E5D2C52717602A00160095 /* ImageCaching.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F95182D70777231E7FB3A7D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +477,7 @@
 				D1A0AF0B27159DE100C6E227 /* Frameworks */,
 				D1A0AF0C27159DE100C6E227 /* Resources */,
 				B12300611D1EA70643294BAA /* [CP] Embed Pods Frameworks */,
+				D1E5D2D1271760B900160095 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -526,6 +561,12 @@
 			mainGroup = D1A0AF0527159DE100C6E227;
 			productRefGroup = D1A0AF0F27159DE100C6E227 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D1E5D2C12717602900160095 /* Products */;
+					ProjectRef = D1E5D2C02717602900160095 /* ImageCaching.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D1A0AF0D27159DE100C6E227 /* DubizzleTask */,
@@ -534,6 +575,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D1E5D2C52717602A00160095 /* ImageCaching.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ImageCaching.framework;
+			remoteRef = D1E5D2C42717602A00160095 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D1A0AF0C27159DE100C6E227 /* Resources */ = {
