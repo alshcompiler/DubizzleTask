@@ -1,0 +1,6 @@
+framework module Pods_DubizzleTask {
+  umbrella header "Pods-DubizzleTask-umbrella.h"
+
+  export *
+  module * { export * }
+}
