@@ -35,7 +35,7 @@ class DetailsPageViewController: UIViewController {
     var presenter: DetailsPageViewToPresenterProtocol?
     
     private let screenWidth: CGFloat = UIScreen.main.bounds.width
-    private let screenHeight: CGFloat = UIScreen.main.bounds.width / 3.0
+    private let screenHeight: CGFloat = UIScreen.main.bounds.width / 2.0
     
     override func viewDidLoad() {
         super.viewDidLoad()

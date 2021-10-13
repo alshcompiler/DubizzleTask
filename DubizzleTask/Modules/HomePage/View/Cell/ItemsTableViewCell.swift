@@ -37,7 +37,7 @@ class ItemsTableViewCell: UITableViewCell {
     weak var presenter: HomePageViewToPresenterBaseProtocol? // made this base presenter to prevent the cell from accessing updateView method in HomePageViewToPresenterProtocol to be consistent with SOLID principles
     private var itemIndex: Int = 0
     private let screenWidth: CGFloat = UIScreen.main.bounds.width
-    private let screenHeight: CGFloat = UIScreen.main.bounds.width / 3.0
+    private let screenHeight: CGFloat = UIScreen.main.bounds.width / 2.0
     private weak var delegate: HomePageTableCellDelegate?
     
     func configure(homePresenter: HomePageViewToPresenterProtocol?, homeDelegate: HomePageTableCellDelegate,cellIndex: Int) {
