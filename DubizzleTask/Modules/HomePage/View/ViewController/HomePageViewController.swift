@@ -6,16 +6,17 @@
 //
 
 import UIKit
-import AlamofireImage
+
 class HomePageViewController: UIViewController {
 
     // MARK: - IBOutlets
     
-    @IBOutlet weak var itemsTableView: UITableView!
+    @IBOutlet private weak var itemsTableView: UITableView!
     
     // MARK: - Properties
+    
     var presenter: HomePageViewToPresenterProtocol?
-    private let screenWidth: CGFloat = UIScreen.main.bounds.width
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -55,14 +56,21 @@ extension HomePageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemsTableViewCell.cellIdentifier, for: indexPath) as! ItemsTableViewCell
-        cell.configure(homePresenter: presenter, cellIndex: indexPath.row)
+        cell.configure(homePresenter: presenter, homeDelegate: self, cellIndex: indexPath.row)
         return cell
     }
 }
 
 extension HomePageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
+        navigateToDetailsScreen(at: indexPath.row)
+    }
+}
+
+extension HomePageViewController: HomePageTableCellDelegate {
+    func navigateToDetailsScreen(at index: Int) {
+        guard let item = presenter?.getItem(index: index) else {return}
+        present(DetailsPageRouter.createModule(with: item), animated: true, completion: nil)
     }
 }

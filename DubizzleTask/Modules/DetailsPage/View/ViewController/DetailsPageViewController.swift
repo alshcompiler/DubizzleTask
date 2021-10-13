@@ -1,0 +1,98 @@
+//
+//  DetailsPageViewController.swift
+//  DubizzleTask
+//
+//  Created by Mostafa.Sultan on 10/13/21.
+//
+
+import UIKit
+import FSPagerView
+import AlamofireImage
+
+class DetailsPageViewController: UIViewController {
+
+    @IBOutlet private weak var detailsPageControl: FSPageControl! {
+        didSet {
+                self.detailsPageControl.numberOfPages = presenter?.getItem()?.imageUrls?.count ?? 0
+                self.detailsPageControl.contentHorizontalAlignment = .center
+                self.detailsPageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+                self.detailsPageControl.isHidden = (presenter?.getItem()?.imageUrls?.count ?? 0) <= 1
+                self.detailsPageControl.roundCorners(radius: 5, maskedCorners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner])
+            }
+    }
+    @IBOutlet private weak var detailsPageView: FSPagerView! {
+        didSet {
+            self.detailsPageView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+            self.detailsPageView.roundCorners(radius: 5)
+            self.detailsPageView.isInfinite = (presenter?.getItem()?.imageUrls?.count ?? 0) > 1
+        }
+    }
+    @IBOutlet private weak var itemPriceLabel: UILabel!
+    @IBOutlet private weak var itemNameLabel: UILabel!
+    @IBOutlet private weak var itemDateLabel: UILabel!
+    
+    var presenter: DetailsPageViewToPresenterProtocol?
+    
+    private let screenWidth: CGFloat = UIScreen.main.bounds.width
+    private let screenHeight: CGFloat = UIScreen.main.bounds.width / 3.0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupView()
+    }
+    
+    fileprivate func setupView() {
+        itemPriceLabel.text = presenter?.getItem()?.price
+        itemNameLabel.text = presenter?.getItem()?.name
+        itemDateLabel.text = "Created At: \(presenter?.getItem()?.createdAt?.formattedDate() ?? "")"
+    }
+    
+    fileprivate func loadImage(_ imageURL: String?, _ cell: FSPagerViewCell) {
+        
+        guard let url = URL(string: imageURL ?? "") else {return}
+        
+//        cell.imageView?.af.cancelImageRequest()
+        let filter: AspectScaledToFillSizeFilter = AspectScaledToFillSizeFilter(
+            // small enough for memory( images were large ), large enough for details screen
+            size: CGSize(width: screenWidth, height: screenHeight)
+        )
+        cell.imageView?.af.setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "Dubizzle"),filter: filter, imageTransition: .crossDissolve(0.5), runImageTransitionIfCached: false){imageResponse in
+            // work around because the downloaded image has no extension
+            
+                UIView.transition(with: cell.imageView ?? UIImageView(),
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                                    cell.imageView?.image =  UIImage(data: imageResponse.data ?? Data()) ?? UIImage() },
+                                  completion: nil)
+        }
+    }
+
+}
+
+extension DetailsPageViewController: FSPagerViewDataSource {
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        presenter?.getItem()?.imageUrls?.count ?? 0
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+//        photoImageView.af.cancelImageRequest()
+//        photoImageView.image = nil
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
+        let item = presenter?.getItem()
+        cell.imageView?.contentMode = .scaleAspectFill
+        loadImage(item?.imageUrls?[0], cell)
+        return cell
+    }
+}
+
+extension DetailsPageViewController: FSPagerViewDelegate {
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        pagerView.deselectItem(at: index, animated: true)
+    }
+    
+    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
+        detailsPageControl.currentPage = targetIndex
+    }
+}

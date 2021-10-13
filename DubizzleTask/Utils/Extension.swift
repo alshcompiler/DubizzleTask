@@ -80,3 +80,14 @@ extension StoryboardIdentifiable where Self: UIViewController {
 }
 
 extension UIViewController: StoryboardIdentifiable { }
+
+extension String {
+    /// Return the date in pretty style
+    func formattedDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        guard let date = dateFormatter.date(from: self) else {return ""}
+        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+        return dateFormatter.string(from: date)
+    }
+}
