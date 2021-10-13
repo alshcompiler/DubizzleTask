@@ -4,7 +4,7 @@
 
 **Notes**
 
-1- The app shows only one item in each table view cell because the API returns only an item in the imageURL array, but in case it returned more than one item, a      pager view will appear magically to swipe between images.
+1- The app shows only one item in each table view cell because the API returns only an item in the imageURL array, but in case it returns more than one item, a      pager view will appear magically to swipe between images.
 
 2-  The app was implemented using VIPER design pattern as recommended.
 
