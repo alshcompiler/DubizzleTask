@@ -13,9 +13,19 @@ class ItemsTableViewCell: UITableViewCell {
     
     static let cellIdentifier: String = "\(ItemsTableViewCell.self)"
 
-    @IBOutlet weak var itemPageControl: FSPagerView! {
+    @IBOutlet weak var itemPageControl: FSPageControl! {
         didSet {
-                self.itemPageControl.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+                self.itemPageControl.numberOfPages = presenter?.getItem(index: itemIndex)?.imageUrls?.count ?? 0
+                self.itemPageControl.contentHorizontalAlignment = .center
+                self.itemPageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+                self.itemPageControl.isHidden = (presenter?.getItem(index: itemIndex)?.imageUrls?.count ?? 0) <= 1
+                self.itemPageControl.roundCorners(radius: 5, maskedCorners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner])
+            }
+    }
+    @IBOutlet weak var itemPagerView: FSPagerView! {
+        didSet {
+                self.itemPagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+                self.itemPagerView.roundCorners(radius: 5)
             }
     }
 
@@ -31,6 +41,8 @@ class ItemsTableViewCell: UITableViewCell {
         let item = presenter?.getItem(index: itemIndex)
         itemNameLabel.text = item?.name
         itemPriceLabel.text = item?.price
+        itemPagerView.isInfinite = (presenter?.getItem(index: itemIndex)?.imageUrls?.count ?? 0) > 1
+        itemPageControl.currentPage = 0 // to avoid cell reusability issue
     }
     
     fileprivate func loadImage(_ imageURL: String?, _ cell: FSPagerViewCell) {
@@ -38,18 +50,24 @@ class ItemsTableViewCell: UITableViewCell {
         guard let url = URL(string: imageURL ?? "") else {return}
         
 //        cell.imageView?.af.cancelImageRequest()
-//        cell.imageView?.image = nil
         let filter: AspectScaledToFillSizeFilter = AspectScaledToFillSizeFilter(
             // small enough for memory( images were large ), large enough for details screen
             size: CGSize(width: screenWidth, height: screenWidth)
         )
-        cell.imageView?.af.setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "Dubizzle"),filter: filter, imageTransition: .crossDissolve(0.5), runImageTransitionIfCached: false){imageResponse in
+        cell.imageView?.image = #imageLiteral(resourceName: "Dubizzle")
+        cell.imageView?.af.setImage(withURL: url, placeholderImage: nil,filter: filter, imageTransition: .crossDissolve(0.5), runImageTransitionIfCached: false){imageResponse in
             // work around because the downloaded image has no extension
-            UIView.transition(with: cell.imageView ?? UIImageView(),
-                              duration: 0.5,
-                              options: .transitionCrossDissolve,
-                              animations: {  cell.imageView?.image =  UIImage(data: imageResponse.data ?? Data()) ?? UIImage() },
-                              completion: nil)
+            DispatchQueue.main.async {
+                cell.imageView?.image = nil
+                UIView.transition(with: cell.imageView ?? UIImageView(),
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                                    cell.imageView?.image =  UIImage(data: imageResponse.data ?? Data()) ?? UIImage() },
+                                  completion: nil)
+            }
+            
+            
         }
     }
     
@@ -57,7 +75,7 @@ class ItemsTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        itemPageControl.reloadData()
+        itemPagerView.reloadData()
      }
     
 }
@@ -73,7 +91,7 @@ extension ItemsTableViewCell: FSPagerViewDataSource {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         let item = presenter?.getItem(index: itemIndex)
         cell.imageView?.contentMode = .scaleAspectFill
-        loadImage(item?.imageUrls?[index], cell)
+        loadImage(item?.imageUrls?[0], cell)
         return cell
     }
 }
@@ -81,5 +99,9 @@ extension ItemsTableViewCell: FSPagerViewDataSource {
 extension ItemsTableViewCell: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         pagerView.deselectItem(at: index, animated: true)
+    }
+    
+    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
+        itemPageControl.currentPage = targetIndex
     }
 }

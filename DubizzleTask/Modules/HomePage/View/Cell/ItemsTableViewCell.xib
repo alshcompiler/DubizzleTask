@@ -8,24 +8,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemsTableViewCell" rowHeight="279" id="dyg-gN-b04" customClass="ItemsTableViewCell" customModule="DubizzleTask" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="553" height="279"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemsTableViewCell" rowHeight="247" id="dyg-gN-b04" customClass="ItemsTableViewCell" customModule="DubizzleTask" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="553" height="247"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dyg-gN-b04" id="xw1-oY-L13">
-                <rect key="frame" x="0.0" y="0.0" width="553" height="279"/>
+                <rect key="frame" x="0.0" y="0.0" width="553" height="247"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flying Cars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fr6-cV-RVB">
-                        <rect key="frame" x="20" y="245" width="74" height="17"/>
+                        <rect key="frame" x="20" y="220" width="74" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qa-GI-Kvc" customClass="FSPagerView" customModule="FSPagerView">
-                        <rect key="frame" x="8" y="8" width="537" height="197"/>
+                        <rect key="frame" x="8" y="8" width="537" height="179"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="197" id="bXP-pA-2ZX"/>
+                            <constraint firstAttribute="height" constant="179" id="3uS-9n-mx9"/>
+                            <constraint firstAttribute="width" secondItem="0qa-GI-Kvc" secondAttribute="height" multiplier="3:1" id="cGp-Ij-jql"/>
                         </constraints>
                         <connections>
                             <outlet property="dataSource" destination="dyg-gN-b04" id="7w1-zm-dfi"/>
@@ -33,31 +34,44 @@
                         </connections>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED 3000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92d-SO-dck">
-                        <rect key="frame" x="20" y="213" width="67.5" height="17"/>
+                        <rect key="frame" x="20" y="195" width="67.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <color key="textColor" red="0.81176470590000005" green="0.12941176469999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2o-4m-JH4" customClass="FSPageControl" customModule="FSPagerView">
+                        <rect key="frame" x="8" y="157" width="537" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Ejs-0v-fG3"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="92d-SO-dck" firstAttribute="top" secondItem="O2o-4m-JH4" secondAttribute="bottom" constant="8" id="3UX-JB-IsN"/>
                     <constraint firstItem="92d-SO-dck" firstAttribute="leading" secondItem="xw1-oY-L13" secondAttribute="leading" constant="20" symbolic="YES" id="50C-Pt-GvT"/>
                     <constraint firstItem="0qa-GI-Kvc" firstAttribute="top" secondItem="xw1-oY-L13" secondAttribute="top" constant="8" id="5Cs-R1-4Tk"/>
-                    <constraint firstItem="92d-SO-dck" firstAttribute="top" secondItem="0qa-GI-Kvc" secondAttribute="bottom" constant="8" id="JkW-AF-x1i"/>
+                    <constraint firstItem="O2o-4m-JH4" firstAttribute="trailing" secondItem="0qa-GI-Kvc" secondAttribute="trailing" id="A6e-rw-vEh"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fr6-cV-RVB" secondAttribute="trailing" constant="8" id="N9b-3j-OX0"/>
+                    <constraint firstAttribute="bottom" secondItem="Fr6-cV-RVB" secondAttribute="bottom" constant="10" id="Vgf-ZT-fPK"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="92d-SO-dck" secondAttribute="trailing" constant="8" id="W5L-as-ubt"/>
                     <constraint firstItem="Fr6-cV-RVB" firstAttribute="leading" secondItem="xw1-oY-L13" secondAttribute="leading" constant="20" symbolic="YES" id="YN0-dE-mY5"/>
-                    <constraint firstAttribute="bottom" secondItem="Fr6-cV-RVB" secondAttribute="bottom" constant="17" id="cdI-ec-7yw"/>
-                    <constraint firstItem="Fr6-cV-RVB" firstAttribute="top" secondItem="92d-SO-dck" secondAttribute="bottom" constant="15" id="cxs-RM-YiM"/>
+                    <constraint firstItem="Fr6-cV-RVB" firstAttribute="top" secondItem="92d-SO-dck" secondAttribute="bottom" constant="8" id="cxs-RM-YiM"/>
                     <constraint firstAttribute="trailing" secondItem="0qa-GI-Kvc" secondAttribute="trailing" constant="8" id="kcn-K9-CPl"/>
+                    <constraint firstItem="O2o-4m-JH4" firstAttribute="bottom" secondItem="0qa-GI-Kvc" secondAttribute="bottom" id="tdK-3Z-TS5"/>
+                    <constraint firstItem="O2o-4m-JH4" firstAttribute="leading" secondItem="0qa-GI-Kvc" secondAttribute="leading" id="w7H-cg-S6t"/>
                     <constraint firstItem="0qa-GI-Kvc" firstAttribute="leading" secondItem="xw1-oY-L13" secondAttribute="leading" constant="8" id="zSR-Lc-fao"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="itemNameLabel" destination="Fr6-cV-RVB" id="0PH-UW-ghV"/>
-                <outlet property="itemPageControl" destination="0qa-GI-Kvc" id="6Cc-US-pb4"/>
+                <outlet property="itemPageControl" destination="O2o-4m-JH4" id="XJH-Rr-iTX"/>
+                <outlet property="itemPagerView" destination="0qa-GI-Kvc" id="6Cc-US-pb4"/>
                 <outlet property="itemPriceLabel" destination="92d-SO-dck" id="lT9-jW-BcT"/>
             </connections>
-            <point key="canvasLocation" x="-161.59420289855075" y="153.68303571428569"/>
+            <point key="canvasLocation" x="-161.59420289855075" y="142.29910714285714"/>
         </tableViewCell>
     </objects>
 </document>

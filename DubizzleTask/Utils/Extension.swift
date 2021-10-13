@@ -10,10 +10,12 @@ import UIKit
 
 
 extension UIView {
-    func roundCorners(radius: CGFloat = 16) { // default value
+    func roundCorners(radius: CGFloat = 16, maskedCorners: CACornerMask = []) { // default value
         self.layer.cornerRadius = radius
+        self.layer.maskedCorners = maskedCorners.isEmpty ? self.layer.maskedCorners : maskedCorners
         self.clipsToBounds = true
     }
+    
 }
 
 extension Array: CodableInit where Element: Codable {}
