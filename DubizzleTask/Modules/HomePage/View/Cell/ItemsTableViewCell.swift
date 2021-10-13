@@ -8,6 +8,8 @@
 import UIKit
 import FSPagerView
 import AlamofireImage
+import ImageCaching
+import Combine
 
 class ItemsTableViewCell: UITableViewCell {
     
@@ -48,27 +50,6 @@ class ItemsTableViewCell: UITableViewCell {
         itemPageControl.currentPage = 0 // to avoid cell reusability issue
     }
     
-    fileprivate func loadImage(_ imageURL: String?, _ cell: FSPagerViewCell) {
-        
-        guard let url = URL(string: imageURL ?? "") else {return}
-        
-//        cell.imageView?.af.cancelImageRequest()
-        let filter: AspectScaledToFillSizeFilter = AspectScaledToFillSizeFilter(
-            // small enough for memory( images were large ), large enough for details screen
-            size: CGSize(width: screenWidth, height: screenHeight)
-        )
-        cell.imageView?.af.setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "Dubizzle"),filter: filter, imageTransition: .crossDissolve(0.5), runImageTransitionIfCached: false){imageResponse in
-            // work around because the downloaded image has no extension
-            
-                UIView.transition(with: cell.imageView ?? UIImageView(),
-                                  duration: 0.5,
-                                  options: .transitionCrossDissolve,
-                                  animations: {
-                                    cell.imageView?.image =  UIImage(data: imageResponse.data ?? Data()) ?? UIImage() },
-                                  completion: nil)
-        }
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         itemPagerView.reloadData()
@@ -82,12 +63,12 @@ extension ItemsTableViewCell: FSPagerViewDataSource {
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-//        photoImageView.af.cancelImageRequest()
-//        photoImageView.image = nil
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         let item = presenter?.getItem(index: itemIndex)
         cell.imageView?.contentMode = .scaleAspectFill
-        loadImage(item?.imageUrls?[0], cell)
+        cell.imageView?.tag = itemIndex
+        guard let cellImageView = cell.imageView else {return cell}
+        ImageCaching.shared.loadImage(url: item?.imageUrls?[index] ?? "", imageView: cellImageView, placeholder: #imageLiteral(resourceName: "Dubizzle"))
         return cell
     }
 }
