@@ -9,6 +9,7 @@ target 'DubizzleTask' do
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'SVProgressHUD'
+  pod 'FSPagerView'
 
   target 'DubizzleTaskTests' do
     inherit! :search_paths

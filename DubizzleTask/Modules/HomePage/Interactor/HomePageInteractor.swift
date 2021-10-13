@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+typealias ItemsClosure = (Result<ItemsResult, Error>) -> Void
 class HomePageInteractor: HomePagePresentorToInteractorProtocol {
     
     // MARK: - Properties
@@ -16,22 +17,14 @@ class HomePageInteractor: HomePagePresentorToInteractorProtocol {
     
     // MARK: - Methods
     func fetchItems() {
-//        Alamofire.request("Constants.URL").response { response in
-//            if(response.response?.statusCode == 200){
-//                guard let data = response.data else { return }
-//                do {
-//                    let decoder = JSONDecoder()
-//                    let newsResponse = try decoder.decode(NewsResponse.self, from: data)
-//                    guard let articles = newsResponse.articles else { return }
-//                    self.news = articles
-//                    self.presenter?.liveNewsFetched()
-//                } catch let error {
-//                    print(error)
-//                }
-//            }
-//            else {
-//                self.presenter?.liveNewsFetchedFailed()
-//            }
-//        }
+        ItemsRouter.items.send(ItemsResult.self, then: { response in
+            switch response {
+            case .failure(let error):
+                self.presenter?.itemsFetchedFailed(message: error.localizedDescription)
+            case .success(let itemsResult):
+                self.items = itemsResult.results
+                self.presenter?.itemsFetched()
+            }
+        })
     }
 }

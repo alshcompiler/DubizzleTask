@@ -39,7 +39,7 @@ extension URLRequestBuilder {
     }
     
     var mainURL: URL  {
-        return URL(string: "https://picsum.photos/v2/")!
+        return URL(string: "https://ey3f2y0nre.execute-api.us-east-1.amazonaws.com/")!
     }
     
     var requestURL: URL {

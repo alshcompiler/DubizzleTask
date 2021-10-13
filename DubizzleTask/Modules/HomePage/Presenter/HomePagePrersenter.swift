@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SVProgressHUD
 
 class HomePagePresenter: HomePageViewToPresenterProtocol {
     
@@ -16,6 +17,7 @@ class HomePagePresenter: HomePageViewToPresenterProtocol {
     
     // MARK: - Methods
     func updateView() {
+        SVProgressHUD.show()
         interactor?.fetchItems()
     }
     
@@ -32,10 +34,12 @@ class HomePagePresenter: HomePageViewToPresenterProtocol {
 extension HomePagePresenter: HomePageInteractorToPresenterProtocol {
     
     func itemsFetched() {
+        SVProgressHUD.dismiss()
         view?.showItems()
     }
     
-    func itemsFetchedFailed() {
-        view?.showError()
+    func itemsFetchedFailed(message: String) {
+        SVProgressHUD.dismiss()
+        view?.showError(message: message)
     }
 }

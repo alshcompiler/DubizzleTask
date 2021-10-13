@@ -14,7 +14,8 @@ class HomePageRouter: HomePagePresenterToRouterProtocol{
     
     class func createModule() -> UIViewController {
         
-        let view = HomePageViewController()
+        let storyboard = UIStoryboard(storyboard: .main)
+        let view: HomePageViewController = storyboard.instantiateViewController()
         let presenter: HomePageViewToPresenterProtocol & HomePageInteractorToPresenterProtocol = HomePagePresenter()
         let interactor: HomePagePresentorToInteractorProtocol = HomePageInteractor()
         let router: HomePagePresenterToRouterProtocol = HomePageRouter()
@@ -24,11 +25,6 @@ class HomePageRouter: HomePagePresenterToRouterProtocol{
         presenter.router = router
         presenter.interactor = interactor
         interactor.presenter = presenter
-        
         return view
-    }
-    
-    static var mainstoryboard: UIStoryboard {
-        return UIStoryboard(name:"Main",bundle: Bundle.main)
     }
 }

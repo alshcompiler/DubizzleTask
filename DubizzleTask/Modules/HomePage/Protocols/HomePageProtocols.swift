@@ -10,12 +10,12 @@ import UIKit
 
 protocol HomePagePresenterToViewProtocol: class {
     func showItems()
-    func showError()
+    func showError(message: String)
 }
 
 protocol HomePageInteractorToPresenterProtocol: class {
     func itemsFetched()
-    func itemsFetchedFailed()
+    func itemsFetchedFailed(message: String)
 }
 
 protocol HomePagePresentorToInteractorProtocol: class {
@@ -25,12 +25,20 @@ protocol HomePagePresentorToInteractorProtocol: class {
     func fetchItems()
 }
 
-protocol HomePageViewToPresenterProtocol: class {
+protocol HomePageViewToPresenterBaseProtocol: class {
+    func getItemsCount() -> Int?
+    func getItem(index: Int) -> ItemModel?
+}
+
+protocol HomePageViewToPresenterProtocol: HomePageViewToPresenterBaseProtocol {
     var view: HomePagePresenterToViewProtocol? { get set }
     var interactor: HomePagePresentorToInteractorProtocol? { get set }
     var router: HomePagePresenterToRouterProtocol? { get set }
     
     func updateView()
+}
+
+protocol HomePageCellToPresenterProtocol: class {
     func getItemsCount() -> Int?
     func getItem(index: Int) -> ItemModel?
 }

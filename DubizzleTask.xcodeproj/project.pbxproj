@@ -10,6 +10,7 @@
 		062F7B7805F51F206F3868FF /* Pods_DubizzleTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5158995B17A2A18F87E2C05 /* Pods_DubizzleTaskTests.framework */; };
 		47313E2A77D09F0737BB2F98 /* Pods_DubizzleTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8A132DE2A659A3318419F6 /* Pods_DubizzleTask.framework */; };
 		7EEA8BD14B1FB638751C9A0B /* Pods_DubizzleTask_DubizzleTaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02642CC98D5C635BB635BE32 /* Pods_DubizzleTask_DubizzleTaskUITests.framework */; };
+		D109E99027161E9F009CF315 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D109E98F27161E9F009CF315 /* ItemsTableViewCell.swift */; };
 		D1A0AF1227159DE100C6E227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AF1127159DE100C6E227 /* AppDelegate.swift */; };
 		D1A0AF1427159DE100C6E227 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AF1327159DE100C6E227 /* SceneDelegate.swift */; };
 		D1A0AF1627159DE100C6E227 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AF1527159DE100C6E227 /* HomePageViewController.swift */; };
@@ -33,6 +34,8 @@
 		D1A0AFA42715B48800C6E227 /* HomePageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AFA32715B48800C6E227 /* HomePageProtocols.swift */; };
 		D1A0AFAE2715BFFB00C6E227 /* GradientViewColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AFAC2715BFFB00C6E227 /* GradientViewColor.swift */; };
 		D1A0AFAF2715BFFB00C6E227 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AFAD2715BFFB00C6E227 /* Extension.swift */; };
+		D1A0AFB52715DD9E00C6E227 /* ItemsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A0AFB42715DD9E00C6E227 /* ItemsRouter.swift */; };
+		D1D3BCBE27161006003007A5 /* ItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D3BCBD27161006003007A5 /* ItemsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,7 @@
 		82DCD663C0C85713B1FA005E /* Pods-DubizzleTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubizzleTask.release.xcconfig"; path = "Target Support Files/Pods-DubizzleTask/Pods-DubizzleTask.release.xcconfig"; sourceTree = "<group>"; };
 		C945396A33944F0FBCA733BC /* Pods-DubizzleTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubizzleTaskTests.debug.xcconfig"; path = "Target Support Files/Pods-DubizzleTaskTests/Pods-DubizzleTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF1318DC03471860CCC8EECF /* Pods-DubizzleTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DubizzleTask.debug.xcconfig"; path = "Target Support Files/Pods-DubizzleTask/Pods-DubizzleTask.debug.xcconfig"; sourceTree = "<group>"; };
+		D109E98F27161E9F009CF315 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
 		D1A0AF0E27159DE100C6E227 /* DubizzleTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DubizzleTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A0AF1127159DE100C6E227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1A0AF1327159DE100C6E227 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		D1A0AFA32715B48800C6E227 /* HomePageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageProtocols.swift; sourceTree = "<group>"; };
 		D1A0AFAC2715BFFB00C6E227 /* GradientViewColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewColor.swift; sourceTree = "<group>"; };
 		D1A0AFAD2715BFFB00C6E227 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D1A0AFB42715DD9E00C6E227 /* ItemsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsRouter.swift; sourceTree = "<group>"; };
+		D1D3BCBD27161006003007A5 /* ItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsTableViewCell.xib; sourceTree = "<group>"; };
 		E5158995B17A2A18F87E2C05 /* Pods_DubizzleTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DubizzleTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +137,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D109E99427163488009CF315 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D1A0AF1727159DE100C6E227 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		D1A0AF0527159DE100C6E227 = {
 			isa = PBXGroup;
 			children = (
@@ -156,12 +170,12 @@
 		D1A0AF1027159DE100C6E227 /* DubizzleTask */ = {
 			isa = PBXGroup;
 			children = (
+				D109E99427163488009CF315 /* Storyboards */,
 				D1A0AF772715ACD700C6E227 /* Modules */,
 				D1A0AFA82715BFB900C6E227 /* Utils */,
 				D1A0AF562715A99D00C6E227 /* Networking */,
 				D1A0AF1127159DE100C6E227 /* AppDelegate.swift */,
 				D1A0AF1327159DE100C6E227 /* SceneDelegate.swift */,
-				D1A0AF1727159DE100C6E227 /* Main.storyboard */,
 				D1A0AF1A27159DE200C6E227 /* Assets.xcassets */,
 				D1A0AF1C27159DE200C6E227 /* LaunchScreen.storyboard */,
 				D1A0AF1F27159DE200C6E227 /* Info.plist */,
@@ -236,6 +250,7 @@
 		D1A0AF782715ACF900C6E227 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				D1A0AFB32715DD7F00C6E227 /* Repository */,
 				D1A0AF792715AD1800C6E227 /* View */,
 				D1A0AF7A2715AD2400C6E227 /* Interactor */,
 				D1A0AF7B2715AD3400C6E227 /* Presenter */,
@@ -307,6 +322,8 @@
 		D1A0AF802715ADE000C6E227 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				D109E98F27161E9F009CF315 /* ItemsTableViewCell.swift */,
+				D1D3BCBD27161006003007A5 /* ItemsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -318,6 +335,14 @@
 				D1A0AFAC2715BFFB00C6E227 /* GradientViewColor.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D1A0AFB32715DD7F00C6E227 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D1A0AFB42715DD9E00C6E227 /* ItemsRouter.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		F95182D70777231E7FB3A7D7 /* Pods */ = {
@@ -444,6 +469,7 @@
 				D1A0AF1E27159DE200C6E227 /* LaunchScreen.storyboard in Resources */,
 				D1A0AF1B27159DE200C6E227 /* Assets.xcassets in Resources */,
 				D1A0AF1927159DE100C6E227 /* Main.storyboard in Resources */,
+				D1D3BCBE27161006003007A5 /* ItemsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,10 +608,12 @@
 				D1A0AF1427159DE100C6E227 /* SceneDelegate.swift in Sources */,
 				D1A0AFAF2715BFFB00C6E227 /* Extension.swift in Sources */,
 				D1A0AF652715A99D00C6E227 /* DefaultResponse.swift in Sources */,
+				D1A0AFB52715DD9E00C6E227 /* ItemsRouter.swift in Sources */,
 				D1A0AF612715A99D00C6E227 /* APIRequestHandler.swift in Sources */,
 				D1A0AF9F2715B46300C6E227 /* HomePageRoute.swift in Sources */,
 				D1A0AF632715A99D00C6E227 /* ResponseHandler.swift in Sources */,
 				D1A0AF952715B3CB00C6E227 /* HomePagePrersenter.swift in Sources */,
+				D109E99027161E9F009CF315 /* ItemsTableViewCell.swift in Sources */,
 				D1A0AFA42715B48800C6E227 /* HomePageProtocols.swift in Sources */,
 				D1A0AF642715A99D00C6E227 /* APIError.swift in Sources */,
 				D1A0AF902715B21500C6E227 /* ItemsResponse.swift in Sources */,

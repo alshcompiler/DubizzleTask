@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ItemsResult: Codable {
+struct ItemsResult: Codable, CodableInit {
     let results: [ItemModel]?
 }

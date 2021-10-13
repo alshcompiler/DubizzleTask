@@ -33,3 +33,48 @@ extension UIImage {
         return UIColor(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255, alpha: CGFloat(bitmap[3]) / 255)
     }
 }
+
+extension UIViewController {
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension UIStoryboard {
+    enum Storyboard: String {
+        case main
+
+        var filename: String {
+            return rawValue.capitalized
+        }
+    }
+    
+    convenience init(storyboard: Storyboard, bundle: Bundle? = nil) { // lets us make easier secondary initializer that eventually calls init
+        self.init(name: storyboard.filename, bundle: bundle)
+    }
+    
+    func instantiateViewController<T: UIViewController>() -> T where T: StoryboardIdentifiable {
+            
+            guard let viewController = self.instantiateViewController(withIdentifier: T.storyboardIdentifier) as? T else {
+                fatalError("Couldn't instantiate view controller with identifier \(T.storyboardIdentifier) ")
+            }
+            
+            return viewController
+        }
+}
+
+protocol StoryboardIdentifiable {
+    static var storyboardIdentifier: String { get }
+}
+
+extension StoryboardIdentifiable where Self: UIViewController {
+    static var storyboardIdentifier: String {
+        return String(describing: self)
+    }
+    
+    
+}
+
+extension UIViewController: StoryboardIdentifiable { }
